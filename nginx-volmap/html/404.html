@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        :root {
+            --nginx-green: #009639;
+            --dark-purple: #4b2e83;
+            --light-gray: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-gray);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .error-container {
+            max-width: 600px;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--nginx-green);
+        }
+        h1 {
+            color: var(--dark-purple);
+            font-size: 3rem;
+            margin: 0 0 1rem;
+        }
+        p {
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--nginx-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        a:hover {
+            background: var(--dark-purple);
+        }
+        .nginx-logo {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <img src="https://www.vectorlogo.zone/logos/nginx/nginx-icon.svg" alt="NGINX Logo" class="nginx-logo">
+        <h1>404</h1>
+        <p>Oops! The page you're looking for doesn't exist.</p>
+        <p><small>You may have mistyped the address or the page was moved.</small></p>
+        <a href="/">Go to Homepage</a>
+    </div>
+</body>
+</html>

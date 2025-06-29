@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGINX Docker Container</title>
+    <style>
+        :root {
+            --nginx-green: #009639;
+            --dark-purple: #4b2e83;
+            --light-gray: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-gray);
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--nginx-green);
+            padding-bottom: 1rem;
+        }
+        .logo {
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            color: var(--dark-purple);
+            margin: 0.5rem 0;
+        }
+        .subtitle {
+            color: var(--nginx-green);
+            font-weight: 500;
+        }
+        .info-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-left: 4px solid var(--dark-purple);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .info-label {
+            font-weight: 600;
+            color: var(--dark-purple);
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://www.vectorlogo.zone/logos/nginx/nginx-icon.svg" alt="NGINX Logo" class="logo">
+            <h1>NGINX Docker Container</h1>
+            <p class="subtitle">Serving content from Alpine Linux</p>
+        </header>
+
+        <div class="info-card">
+            <p><span class="info-label">Container ID:</span> <span id="hostname">Loading...</span></p>
+            <p><span class="info-label">NGINX Version:</span> <span id="nginx-version">Loading...</span></p>
+            <p><span class="info-label">Server Address:</span> <span id="server-address">Loading...</span></p>
+            <p><span class="info-label">Current Time:</span> <span id="current-time">Loading...</span></p>
+        </div>
+
+        <div>
+            <h2>About This Container</h2>
+            <p>This NGINX web server is running inside a Docker container with:</p>
+            <ul>
+                <li>Alpine Linux base image</li>
+                <li>Auto-restart policy (<code>unless-stopped</code>)</li>
+                <li>Persistent volume for content</li>
+                <li>Custom network configuration</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Powered by NGINX | Docker | Alpine Linux</p>
+        </footer>
+    </div>
+
+    <script>
+        // Display dynamic container info
+        document.getElementById('hostname').textContent = window.location.hostname;
+        document.getElementById('server-address').textContent = window.location.host;
+        
+        // Update time every second
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('current-time').textContent = now.toLocaleString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+        
+        // Fetch NGINX version (requires server-side script in real implementation)
+        document.getElementById('nginx-version').textContent = 'nginx/1.25.3 (Alpine)';
+    </script>
+</body>
+</html>

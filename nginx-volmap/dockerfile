@@ -1,0 +1,14 @@
+# NGIX WEB SERVER
+# Docker Command:
+# docker run -d --name nginx-websrv01 --network nginx-webserver -p 8080:80 -v ./html:/usr/share/nginx/html nginx:alpine3.22
+FROM nginx:alpine3.22
+
+# Copy configs and HTML
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx/.htpasswd /etc/nginx/.htpasswd
+COPY html /usr/share/nginx/html
+
+# Ensure permissions (M4 Macs sometimes need this)
+RUN chmod 644 /etc/nginx/.htpasswd
+
+EXPOSE 80

@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  nginx-webserver:
+    image: shiroscout/nginx-volmap:alpine3.22
+    container_name: nginx-websrv01
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+    networks:
+      - nginx-webserver
+    restart: unless-stopped  # Auto-restart if crashes
+
+networks:
+  nginx-webserver:
+    name: nginx-webserver  # Uses your existing network
